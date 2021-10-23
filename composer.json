@@ -1,0 +1,17 @@
+{
+    "name": "cyl/keyboard",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cyl",
+            "email": "labetowiez@aol.fr"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.3"
+    }
+}
