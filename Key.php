@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 /**
  * Key
  * 
@@ -14,7 +17,7 @@ class Key{
      * Constructor of Key
      * 
      * @param string $str Name of the key
-     * @param array $args Position of the Key [x,y]. Default [0,0].  
+     * @param array $args Position of the Key [x,y]. Default [0,0]. Only Positives
      */
     public function __construct(string $str, array $args = [0,0])
     {
@@ -62,13 +65,16 @@ class Key{
      */
     public function setPosition(array $args = [0,0]): self
     {
-        if(count($args) != 2){
-            return $this;
+        if(count($args) < 2){
+            trigger_error("Insufficient array length. Array length should be two.", E_USER_ERROR);
         }
 
         foreach($args as $arg){
-            if (!is_float($arg) || $arg < 0){
-                return $this;
+            if (!is_float($arg)){
+                trigger_error("Wrong type given. Expect Float", E_USER_ERROR);
+            }
+            if ($arg < 0){
+                trigger_error("Wrong value. Value needs to be positive", E_USER_ERROR);
             }
         }
 
