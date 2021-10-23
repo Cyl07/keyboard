@@ -21,7 +21,7 @@ class Key{
      */
     public function __construct(string $str, array $args = [0,0])
     {
-        $this->str = $str;
+        $this->name = $str;
         $this->setPosition($args);
     }
 

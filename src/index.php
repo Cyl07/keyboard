@@ -5,18 +5,30 @@ use App\Key;
 use App\Character;
 use App\Keyboard;
 
-$input = str_split("ahahah", 1);
+$src = "AhahAhahHAhaH";
+$input = str_split($src, 1);
 
-$keyA = new Key("letterA", [0,0]);
-$keyH = new Key("letterH", [1,1]);
+$keyA = new Key("A", [0,0]);
+$keyH = new Key("H", [1,1]);
+$keyShift = new Key("shift", [3,2]);
 
-$charA = new Character("a", [$keyA]);
-$charH = new Character("h", [$keyH]);
+$chara = new Character("a", [$keyA]);
+$charh = new Character("h", [$keyH]);
+$charA = new Character("A", [$keyShift, $keyA]);
+$charH = new Character("H", [$keyShift, $keyH]);
 
-$keayboard = new Keyboard([$keyA, $keyH]);
+$caracList = [$chara, $charh, $charA, $charH];
 
+$keayboard = new Keyboard([$keyA, $keyH, $keyShift]);
+
+echo "To enter $src, you pressed: \n";
 foreach($input as $char){
-    if ($charA->getChar() === $char){
-        echo "found a\n";
+    foreach($caracList as $carac){
+        if ($carac->getChar() === $char){
+            foreach($carac->getKeys() as $key){
+                echo $key->getName();
+            }
+            echo "\n";
+        }
     }
 }
