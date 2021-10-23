@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 use App\Key;
 
 /**
@@ -69,6 +71,7 @@ class Character
      * Set the keys needed to print a character
      * 
      * @param array $args Array of Key object. Minimum lenght: 1.
+     * @return self Instance of Character
      */
     public function setKeys(array $args): self
     {
@@ -78,6 +81,7 @@ class Character
 
         foreach($args as $arg){
             if (!($arg instanceof Key)){
+                echo(get_class($arg));
                 trigger_error("Wrong type given. Expect Key object",E_USER_ERROR);
             }
         }

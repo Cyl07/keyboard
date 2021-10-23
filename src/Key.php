@@ -70,7 +70,7 @@ class Key{
         }
 
         foreach($args as $arg){
-            if (!is_float($arg)){
+            if (!is_numeric($arg)){
                 trigger_error("Wrong type given. Expect Float", E_USER_ERROR);
             }
             if ($arg < 0){
