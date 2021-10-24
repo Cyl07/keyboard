@@ -8,7 +8,7 @@ use App\Keyboard;
 $src = "AhahAhahHAhaH";
 $input = str_split($src, 1);
 
-$keyA = new Key("A", [0,0]);
+$keyA = new Key("A", [1,0]);
 $keyH = new Key("H", [1,1]);
 $keyShift = new Key("shift", [3,2]);
 
@@ -19,16 +19,6 @@ $charH = new Character("H", [$keyShift, $keyH]);
 
 $caracList = [$chara, $charh, $charA, $charH];
 
-$keayboard = new Keyboard([$keyA, $keyH, $keyShift]);
+$keyboard = new Keyboard([$keyA, $keyH, $keyShift], $caracList);
 
-echo "To enter $src, you pressed: \n";
-foreach($input as $char){
-    foreach($caracList as $carac){
-        if ($carac->getChar() === $char){
-            foreach($carac->getKeys() as $key){
-                echo $key->getName();
-            }
-            echo "\n";
-        }
-    }
-}
+$keyboard->write("hAhaHHahHA");
