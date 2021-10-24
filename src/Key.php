@@ -5,13 +5,14 @@ namespace App;
 /**
  * Key
  * 
- * Used to describe keys of a keyboard
+ * Used to describe a key of a keyboard
  * 
  * @author Théo Labetowiez
  */
 class Key{
-    private string $name;
-    private array $position;
+
+    protected string $name;
+    protected array $position;
 
     /**
      * Constructor of Key

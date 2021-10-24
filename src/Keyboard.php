@@ -113,6 +113,22 @@ class Keyboard
         return null;
     }
 
+    /**
+     * Get an Array of Keystats on the keyboard
+     * 
+     * @return array Array of Keystats object
+     */
+    public function getKeysStats(): array
+    {
+        $result = [];
+        foreach($this->keys as $key){
+            if($key instanceof KeyStats){
+                $result[] = $key;
+            }
+        }
+        return $result;
+    }
+
     public function write(string $str, bool $strict = false): void
     {
         $haystack = $this->getCharacters(true);
@@ -125,10 +141,13 @@ class Keyboard
             } else {
                 $searchedChar = $this->getCharacterByText($char);
                 foreach($searchedChar->getKeys() as $key){
+                    if ($key instanceof KeyStats){
+                        $key->addTap();
+                    }
                     echo $key->getName();
                 }
                 echo "\n";
-            }   
+            }
         }
     }
 }
