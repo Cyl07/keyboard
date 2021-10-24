@@ -118,12 +118,26 @@ class Keyboard
      * 
      * @return array Array of Keystats object
      */
-    public function getKeysStats(): array
+    public function getKeysStats(bool $visualMode = false, bool $onlyPositives = false): array
     {
         $result = [];
         foreach($this->keys as $key){
             if($key instanceof KeyStats){
-                $result[] = $key;
+                if($onlyPositives){
+                    if ($key->getNbTap() > 0){
+                        if ($visualMode){
+                            $result[$key->getName()] = $key->getNbTap();
+                        } else {
+                            $result[] = $key;
+                        }
+                    }
+                } else {
+                    if ($visualMode){
+                        $result[$key->getName()] = $key->getNbTap();
+                    } else {
+                        $result[] = $key;
+                    }
+                }
             }
         }
         return $result;
