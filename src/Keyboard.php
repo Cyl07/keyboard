@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Key;
+use App\Finger;
 
 /**
  * Keyboard
@@ -14,6 +15,7 @@ class Keyboard
 {
     private array $keys;
     private array $characters;
+    private array $fingers;
 
     /**
      * Constructor of Keyboard
@@ -21,10 +23,11 @@ class Keyboard
      * @param string $args Array of Key object.
      * @param string $argv Array of Character object.
      */
-    public function __construct(array $args, array $argv)
+    public function __construct(array $args, array $argv, array $argc)
     {
         $this->setKeys($args);
         $this->setCharacters($argv);
+        $this->setFingers($argc);
     }
     
     /**
@@ -87,13 +90,28 @@ class Keyboard
      */
     public function setCharacters(array $args): self
     {
-
         foreach($args as $arg){
             if (!($arg instanceof Character)){
                 trigger_error("Wrong type given. Expect Character object",E_USER_ERROR);
             }
         }
         $this->characters = $args;
+        return $this;
+    }
+
+    public function getFingers(): array
+    {
+        return $this->fingers;
+    }
+
+    public function setFingers(array $args): self
+    {
+        foreach($args as $arg){
+            if (!($arg instanceof Finger)){
+                trigger_error("Wrong type given. Expect Finger object",E_USER_ERROR);
+            }
+        }
+        $this->fingers = $args;
         return $this;
     }
 
@@ -108,6 +126,16 @@ class Keyboard
         foreach($this->characters as $char){
             if($char->getChar() == $str){
                 return $char;
+            }
+        }
+        return null;
+    }
+
+    private function getFingerByKey(Key $key): ?Finger
+    {
+        foreach($this->fingers as $finger){
+            if (in_array($key, $finger->getAvailableKeys())){
+                return $finger;
             }
         }
         return null;
@@ -143,6 +171,27 @@ class Keyboard
         return $result;
     }
 
+    public function getFingersStats(): array
+    {
+        $result = [];
+        /*$keyStats = $this->getKeysStats(false, true);*/
+        $sum = 0;
+        foreach($this->fingers as $finger){
+            $result[$finger->getName()][0] = 0;
+            foreach($finger->getAvailableKeys() as $key){
+                $result[$finger->getName()][0] += $key->getnbTap();
+                $sum += $key->getnbTap();
+            }
+            $result[$finger->getName()][2] = $finger->getDistanceMoved();
+        }
+
+        foreach($this->fingers as $finger){
+            $result[$finger->getName()][1] = $result[$finger->getName()][0];
+            $result[$finger->getName()][0] = 100 * $result[$finger->getName()][0] / $sum;
+        }
+        return $result;
+    }
+
     public function write(string $str, bool $strict = false): void
     {
         $haystack = $this->getCharacters(true);
@@ -155,12 +204,12 @@ class Keyboard
             } else {
                 $searchedChar = $this->getCharacterByText($char);
                 foreach($searchedChar->getKeys() as $key){
+                    $usedFinger = $this->getFingerByKey($key);
+                    $usedFinger->move($key);
                     if ($key instanceof KeyStats){
                         $key->addTap();
                     }
-                    echo $key->getName();
                 }
-                echo "\n";
             }
         }
     }

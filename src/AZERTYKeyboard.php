@@ -220,6 +220,19 @@ class AZERTYKeyboard extends Keyboard
             new Character("¡",[$keys[52],$keys[59]]),
         ];
 
-        parent::__construct($keys, $characters);
+        $fingers = [
+            new Finger("Left little", $keys[29], [$keys[0],$keys[1],$keys[15],$keys[29],$keys[43],$keys[42],$keys[41],$keys[14],$keys[28]]),
+            new Finger("Left ring", $keys[30], [$keys[2],$keys[16],$keys[30],$keys[44]]),
+            new Finger("Left middle", $keys[31], [$keys[3],$keys[17],$keys[31],$keys[45]]),
+            new Finger("Left index", $keys[32], [$keys[4],$keys[5],$keys[18],$keys[19],$keys[32],$keys[33],$keys[46],$keys[47]]),
+            new Finger("Left thumb", $keys[58], [$keys[58]]),
+            new Finger("Right thumb", $keys[58], [$keys[58],$keys[59]]),
+            new Finger("Right index", $keys[35], [$keys[6],$keys[7],$keys[20],$keys[21],$keys[34],$keys[35],$keys[48],$keys[49]]),
+            new Finger("Right middle", $keys[36], [$keys[8],$keys[22],$keys[36],$keys[50]]),
+            new Finger("Right ring", $keys[37], [$keys[9],$keys[23],$keys[37],$keys[51]]),
+            new Finger("Right little", $keys[38], [$keys[10],$keys[11],$keys[12],$keys[13],$keys[24],$keys[25],$keys[26],$keys[27],$keys[38],$keys[39],$keys[40],$keys[52],$keys[53]])
+        ];
+
+        parent::__construct($keys, $characters, $fingers);
     }
 }
