@@ -2,9 +2,9 @@
 
 {% block content %}
     <form class="text-form" action="" method="POST">
-        <label for="keyboard" class="label">Write your text</label>
-        <textarea class="keyboard" id="keyboard" name="keyboard">{{ textarea }}</textarea>
-        <button type="submit">Send</button>
+        <label for="form-keyboard" class="form-label">Write your text</label>
+        <textarea class="form-keyboard" id="keyboard" name="keyboard">{{ textarea }}</textarea>
+        <button class="form-button" type="submit">Send</button>
     </form>
     <section class="content">
         <div class="left hand">
@@ -18,10 +18,14 @@
             <ul class="finger-stats">
                 <li class="stats">{{ stat[0] }} <i class="fas fa-percent"></i></li>
                 <li class="stats">{{ stat[1] }} <i class="far fa-keyboard"></i></li>
-                <li class="stats">{{ stat[2] }} <i class="fas fa-plus"></i></li>
+                <li class="stats indice">{{ stat[2] }} <i class="fas fa-plus"></i></li>
             </ul>
         {% endfor %}
         </div>
     </section>
     
+{% endblock %}
+
+{% block script %}
+    <script src="/assets/js/script.js"></script>
 {% endblock %}

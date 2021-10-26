@@ -47,7 +47,7 @@ body{
     flex-direction: column;
 }
 
-.keyboard{
+.form-keyboard{
     resize: none;
     min-height: 50vh;
     border: none;
@@ -58,13 +58,20 @@ body{
     padding: 1rem;
 }
 
-.keyboard:focus{
+.form-keyboard:focus{
     outline: 0;
 }
 
-.label{
+.form-label{
     padding: 0 0 1rem 1rem;
     size: bold;
+}
+
+.form-button{
+    width: 7rem;
+    height: 2rem;
+    margin-top: 1rem;
+    align-self: flex-end;
 }
 
 /*Hand Stats*/
@@ -106,4 +113,16 @@ body{
 .hand-name{
     grid-row: 1;
     text-align: center;
+}
+
+.good{
+    border-bottom: solid 10px green;
+}
+
+.average{
+    border-bottom: solid 10px orange;
+}
+
+.bad{
+    border-bottom: solid 10px red;
 }
