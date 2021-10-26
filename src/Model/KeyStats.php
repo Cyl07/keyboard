@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use App\Key;
+use App\Model\Key;
 
 
 /**

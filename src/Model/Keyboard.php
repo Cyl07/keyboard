@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use App\Key;
-use App\Finger;
+use App\Model\Key;
+use App\Model\Finger;
 
 /**
  * Keyboard

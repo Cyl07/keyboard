@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-use App\AZERTYKeyboard;
+use App\Model\AZERTYKeyboard;
 
 $keyboard = new AZERTYKeyboard();
 

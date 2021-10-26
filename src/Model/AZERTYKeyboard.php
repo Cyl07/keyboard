@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use App\Keyboard;
+use App\Model\Keyboard;
 
 class AZERTYKeyboard extends Keyboard
 {
