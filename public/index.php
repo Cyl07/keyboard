@@ -19,5 +19,5 @@ foreach($keyboard->getKeysStats(true, true) as $key => $value){
 }
 
 foreach($keyboard->getFingersStats() as $key => $value){
-    echo "$key :\n  $value[0] %\n  $value[1] time\n  $value[2] cm\n";
+    echo "$key :\n  $value[0] %\n  $value[1] time\n  $value[2]\n";
 }

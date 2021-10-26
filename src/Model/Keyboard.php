@@ -187,7 +187,8 @@ class Keyboard
 
         foreach($this->fingers as $finger){
             $result[$finger->getName()][1] = $result[$finger->getName()][0];
-            $result[$finger->getName()][0] = 100 * $result[$finger->getName()][0] / $sum;
+            $result[$finger->getName()][0] = number_format(100 * $result[$finger->getName()][0] / $sum, 2);
+            $result[$finger->getName()][2] = number_format($result[$finger->getName()][2]/$result[$finger->getName()][1], 2);
         }
         return $result;
     }
