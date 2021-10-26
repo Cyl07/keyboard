@@ -38,8 +38,8 @@ body{
 /*Form*/
 .text-form{
     background: #e0e0e0;
-    box-shadow: inset 5px 5px 10px #bebebe,
-                inset -5px -5px 10px #ffffff;
+    box-shadow:  5px 5px 10px #bebebe,
+                 -5px -5px 10px #ffffff;
     border-radius: 1rem;
     margin: 2rem;
     padding: 2rem;
@@ -50,6 +50,21 @@ body{
 .keyboard{
     resize: none;
     min-height: 50vh;
+    border: none;
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe,
+                inset -5px -5px 10px #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.keyboard:focus{
+    outline: 0;
+}
+
+.label{
+    padding: 0 0 1rem 1rem;
+    size: bold;
 }
 
 /*Hand Stats*/

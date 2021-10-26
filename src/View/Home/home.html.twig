@@ -2,8 +2,8 @@
 
 {% block content %}
     <form class="text-form" action="" method="POST">
-        <label for="keyboard">Write your text</label>
-        <textarea class="keyboard" id="keyboard" name="keyboard"></textarea>
+        <label for="keyboard" class="label">Write your text</label>
+        <textarea class="keyboard" id="keyboard" name="keyboard">{{ textarea }}</textarea>
         <button type="submit">Send</button>
     </form>
     <section class="content">
