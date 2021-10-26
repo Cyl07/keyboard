@@ -1,7 +1,6 @@
 let indices = document.getElementsByClassName("indice");
 
 for (let index in indices){
-    console.log(indices[index]);
     let html = indices[index].innerHTML.split(" ")[0];
     if (html < 1){
         indices[index].parentElement.classList.add("good");
