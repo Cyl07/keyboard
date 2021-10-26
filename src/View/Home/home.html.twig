@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <form class="text-form" action="" method="POST">
+        <label for="keyboard">Write your text</label>
+        <textarea id="keyboard" name="keyboard"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <section class="content">
+    <div class="left hand">
+    {% for stat in stats %}
+        {% if loop.index == 6 %}
+        </div><div class="right hand">
+        {% endif %}
+        <div class="finger">
+            <ul class="finger-stats">
+                <li class="stats">{{ stat[0] }}%</li>
+                <li class="stats">{{ stat[1] }} time used</li>
+                <li class="stats">{{ stat[2] }}</li>
+            </ul>
+        </div>
+    {% endfor %}
+    </div>
+    </section>
+    
+{% endblock %}

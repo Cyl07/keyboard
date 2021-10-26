@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: #e0e0e0;
+}
+
+.text-form{
+    background: #e0e0e0;
+    box-shadow:  5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+    border-radius: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.hand{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background: #e0e0e0;
+    box-shadow:  5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+    border-radius: 1rem;
+    list-style: none;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.finger-stats{
+    background: #e0e0e0;
+    box-shadow:  inset 5px 5px 10px #bebebe,
+                inset -5px -5px 10px #ffffff;
+    border-radius: 1rem;
+    list-style: none;
+    margin: 1rem;
+    padding: 1rem;
+}

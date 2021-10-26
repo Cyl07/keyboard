@@ -174,7 +174,6 @@ class Keyboard
     public function getFingersStats(): array
     {
         $result = [];
-        /*$keyStats = $this->getKeysStats(false, true);*/
         $sum = 0;
         foreach($this->fingers as $finger){
             $result[$finger->getName()][0] = 0;
@@ -186,9 +185,16 @@ class Keyboard
         }
 
         foreach($this->fingers as $finger){
+            //nb tap
             $result[$finger->getName()][1] = $result[$finger->getName()][0];
-            $result[$finger->getName()][0] = number_format(100 * $result[$finger->getName()][0] / $sum, 2);
-            $result[$finger->getName()][2] = number_format($result[$finger->getName()][2]/$result[$finger->getName()][1], 2);
+            //pourcentage
+            $result[$finger->getName()][0] = number_format(100 * $result[$finger->getName()][0] / max(1,$sum), 2);
+            if ($result[$finger->getName()][1] === 0){
+                $result[$finger->getName()][2] = 0;
+            } else {
+                //indice
+                $result[$finger->getName()][2] = number_format($result[$finger->getName()][2]/$result[$finger->getName()][1], 2);
+            }
         }
         return $result;
     }
@@ -201,7 +207,7 @@ class Keyboard
                 if ($strict){
                     trigger_error("The Keyboard object cannot print this text", E_USER_ERROR);
                 }
-                trigger_error("The Keyboard object cannot print this text", E_USER_WARNING);
+                //trigger_error("The Keyboard object cannot print this text", E_USER_WARNING);
             } else {
                 $searchedChar = $this->getCharacterByText($char);
                 foreach($searchedChar->getKeys() as $key){
