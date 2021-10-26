@@ -5,12 +5,41 @@
 
 body{
     background: #e0e0e0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.text-form{
+
+/*navbar*/
+
+.nav{
+    text-align: end;
+    height: 4rem;
+}
+
+.nav-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    margin: .4rem;
+
+    border-radius: 1rem;
     background: #e0e0e0;
     box-shadow:  5px 5px 10px #bebebe,
-    -5px -5px 10px #ffffff;
+                -5px -5px 10px #ffffff;
+}
+
+/*Form*/
+.text-form{
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe,
+                inset -5px -5px 10px #ffffff;
     border-radius: 1rem;
     margin: 2rem;
     padding: 2rem;
@@ -18,23 +47,31 @@ body{
     flex-direction: column;
 }
 
+.keyboard{
+    resize: none;
+    min-height: 50vh;
+}
+
+/*Hand Stats*/
 .content{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .hand{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
+
+    display: grid;
+    grid-template-rows: 1fr repeat(5,3fr);
+
     background: #e0e0e0;
     box-shadow:  5px 5px 10px #bebebe,
     -5px -5px 10px #ffffff;
     border-radius: 1rem;
+
     list-style: none;
     margin: 1rem;
-    padding: 0.5rem;
+    padding: .8rem;
 }
 
 .finger-stats{
@@ -45,4 +82,13 @@ body{
     list-style: none;
     margin: 1rem;
     padding: 1rem;
+}
+
+.stats{
+    text-align: end;
+}
+
+.hand-name{
+    grid-row: 1;
+    text-align: center;
 }
